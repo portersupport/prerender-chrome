@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 var prerender = require('./lib');
 
-var server = prerender();
+var server = prerender({
+    logRequests: true,
+    captureConsoleLog: true
+});
 
 server.use(prerender.sendPrerenderHeader());
 // server.use(prerender.blockResources());
