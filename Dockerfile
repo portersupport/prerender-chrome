@@ -1,4 +1,4 @@
-FROM node:18-buster
+FROM node:12.18.0-stretch
 LABEL maintainer="Freeletics GmbH <operations@freeletics.com>"
 
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
