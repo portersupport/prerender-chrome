@@ -1,0 +1,27 @@
+name: "Docker Build with Kaniko DEPS"
+
+on:
+  pull_request:
+    types: [opened, reopened]
+  push:
+    branches: master
+    tags:
+    - '*'
+
+permissions:
+  id-token: write
+  contents: read
+  actions: write
+
+jobs:
+  build:
+    permissions:
+      id-token: write
+      contents: read
+      actions: write
+    uses: freeletics/actions/.github/workflows/docker.yaml@main #this has to be public
+    with:
+      env_name: "prod"
+      AWS_REGION: "eu-west-1"
+      AWS_ACCOUNT_ID: "524690225562"
+    secrets: inherit
